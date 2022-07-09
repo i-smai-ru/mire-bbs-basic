@@ -1,23 +1,17 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "database": "dev-bbs",
+    "dialect": "sqlite",
+    "storage": "dev-bbs.sqlite3"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "database": "test-bbs",
+    "dialect": "sqlite",
+    "storage": "test-bbs.sqlite3"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "database": "bbs",
+    "dialect": "sqlite",
+    "storage": "bbs.sqlite3"
   }
 }
