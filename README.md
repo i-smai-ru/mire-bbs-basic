@@ -4,7 +4,7 @@
 
 ### 機能
 - ユーザーCRUD
-- ログイン・ログアウト機能
+- ログイン・ログアウト機能(簡易) 
 - 投稿機能(ログイン時のみ)
 - 閲覧と検索(非ログイン可)
 
@@ -49,4 +49,42 @@ npm install express-session
 npm install sqlite3
 npm install sequelize
 npm install sequelize-cli
+npm install bcrypt
+```
+- Sequelizeの初期化
+```
+npx sequelize-cli init
+```
+
+- Userモデル作成
+```
+npx sequelize-cli model:generate --name User --attributes name:string,pass:string,mail:string
+```
+
+```javascript:models/user.js
+User.associate = function (models) {
+    User.hasMany(models.Post);
+};
+```
+
+- Postモデル
+```
+npx sequelize-cli model:generate --name Post --attributes userId:integer,message:string
+```
+```javascript:models/post.js
+Post.associate = function (models) {
+    Post.belongsTo(models.User);
+};
+```
+
+- シード作成
+```
+npx sequelize-cli seed:generate --name sample-user
+npx sequelize-cli seed:generate --name sample-post
+```
+
+- migrationとシーディングの実行
+```
+npx sequelize-cli db:migrate --env development
+npx sequelize-cli db:seed:all
 ```
