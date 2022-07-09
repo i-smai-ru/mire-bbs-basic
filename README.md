@@ -17,3 +17,36 @@
 - DBの基礎(sqlite3)
 - ORMの基礎
 - webアプリケーションのセキュリティの基礎
+
+
+### 環境構築
+- [volta](https://volta.sh/)インストール
+- nodeインストール
+- [sqlitebrowser](https://sqlitebrowser.org/dl/)インストール
+- git clon or ダウンロード
+- cd final && npm intall
+```
+npm install
+```
+- npm start
+```
+npm start
+```
+
+### 開発メモ
+- Express Generatorのインストール
+```
+npm install -g express-generator
+```
+- アプリケーション作成
+```
+express --view=ejs final
+```
+- MIRE-BBS-BASIC直下にファイルを移動してbbsは削除
+- 必要なパッケージのインストール
+```
+npm install express-session
+npm install sqlite3
+npm install sequelize
+npm install sequelize-cli
+```
