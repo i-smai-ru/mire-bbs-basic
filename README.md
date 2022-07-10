@@ -28,9 +28,9 @@
 ```
 npm install
 ```
-- npm start
+- npm run dev
 ```
-npm start
+npm run dev
 ```
 
 ### 開発メモ
@@ -50,6 +50,7 @@ npm install sqlite3
 npm install sequelize
 npm install sequelize-cli
 npm install bcrypt
+npm install -D nodemon
 ```
 - Sequelizeの初期化
 ```
