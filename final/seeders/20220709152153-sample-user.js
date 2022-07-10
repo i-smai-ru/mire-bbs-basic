@@ -21,7 +21,7 @@ module.exports = {
       {
         name: 'nklabo2',
         pass: await hash('nklabo2'),
-        mail: 'nklabo1@nklabo.com',
+        mail: 'nklabo2@nklabo.com',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -37,7 +37,8 @@ module.exports = {
         pass: await hash('nklabo4'),
         mail: 'nklabo4@nklabo.com',
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        deletedAt: new Date()
       }
     ]);
   },
