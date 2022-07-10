@@ -32,6 +32,16 @@ npm install
 ```
 npm run dev
 ```
+- 下記のurlで画面表示されたらOK
+```
+http://localhost:3000/
+```
+
+- ログイン情報
+```
+名前: nklabo1
+パスワード: nklabo1
+```
 
 ### 開発メモ
 - Express Generatorのインストール
