@@ -5,6 +5,8 @@ const db = require('../models/index');
 
 const { Op } = require("sequelize");
 
+const bcrypt = require("bcrypt");
+
 router.get('/', (req, res, next) => {
   const nm = req.query.name;
   const ml = req.query.mail;
@@ -95,21 +97,25 @@ router.post('/delete', (req, res, next) => {
 
 router.get('/login', (req, res, next) => {
   var data = {
-    title: 'ユーザーログイン',
+    title: 'ログイン',
     content: '名前とパスワードを入力下さい。'
   }
   res.render('users/login', data);
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/login', async (req, res, next) => {
+  let salt = '$2a$10$VpsqBArIfdhGzJY1YO/xyO';
+  let pass = await bcrypt.hash(req.body.pass, salt);
+
   db.User.findOne({
     where: {
       name: req.body.name,
-      pass: req.body.pass,
+      pass: pass
     }
   }).then(usr => {
     if (usr != null) {
       req.session.login = usr;
+      console.log(req.session);
       let back = req.session.back;
       if (back == null) {
         back = '/';
@@ -123,6 +129,18 @@ router.post('/login', (req, res, next) => {
       res.render('users/login', data);
     }
   })
+});
+
+router.get('/logout', (req, res, next) => {
+  req.session.login = null
+  req.session.save(function (err) {
+    if (err) next(err)
+    req.session.regenerate(function (err) {
+      if (err) next(err)
+      res.redirect('/')
+    })
+  })
+
 });
 
 module.exports = router;

@@ -2,7 +2,7 @@
 const bcrypt = require("bcrypt");
 
 async function hash(password) {
-  const salt = await bcrypt.genSalt(10);
+  const salt = '$2a$10$VpsqBArIfdhGzJY1YO/xyO';
   const passwprdHash = await bcrypt.hash(password, salt);
 
   return passwprdHash;

@@ -10,5 +10,17 @@
     <p class="mt-4"><a href="/posts">投稿一覧</a>｜
       <a href="/users">ユーザー一覧</a>
     </p>
+    <%  if(login !== null) { %>
+      <p class="mt-4">
+        <%= login.name %>でログイン中。
+      </p>
+      <p class="mt-4">
+        <a href="/users/logout">ログインアウトする</a>
+      </p>
+    <% } else { %>
+      <p class="mt-4">
+        <a href="/users/login">ログインする</a>
+      </p>
+    <% } %>
   </body>
 </html>

@@ -89,3 +89,10 @@ npx sequelize-cli seed:generate --name sample-post
 npx sequelize-cli db:migrate --env development
 npx sequelize-cli db:seed:all
 ```
+
+- sessionの注意  
+デフォルトはインメモリで保存されている。  
+```
+Warning The default server-side session storage, MemoryStore, is purposely not designed for a production environment. It will leak memory under most conditions, does not scale past a single process, and is meant for debugging and developing.
+```  
+https://github.com/expressjs/session#sessionoptions
